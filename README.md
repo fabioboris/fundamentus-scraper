@@ -37,6 +37,12 @@ Este projeto extrai dados fundamentalistas de ações e Fundos de Investimento I
    pip install -r requirements.txt
    ```
 
+3. Configure o pre-commit:
+   ```bash
+   pip install pre-commit
+   pre-commit install
+   ```
+
 ## 📖 Como Usar
 
 ### Extrair todos os dados para um arquivo Excel
@@ -132,6 +138,34 @@ Dados salvos com sucesso em: analise/dados_fundamentalistas.xlsx
 - Quantidade de Imóveis
 - Cap Rate
 - E outros indicadores específicos para FIIs
+
+## 🧪 Desenvolvimento
+
+### Pre-commit
+
+Este projeto utiliza [pre-commit](https://pre-commit.com/) para garantir a qualidade do código. Os hooks configurados verificam e corrigem automaticamente problemas comuns antes de cada commit, incluindo:
+
+- Formatação com Black
+- Ordenação de imports com isort
+- Verificação de estilo com Flake8
+- Atualização de sintaxe Python com pyupgrade
+- Remoção de espaços em branco no final das linhas
+- Validação de arquivos YAML
+
+Para desenvolvimento, é obrigatório configurar o pre-commit:
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+Você pode executar manualmente os hooks em todos os arquivos do projeto:
+
+```bash
+pre-commit run --all-files
+```
+
+O projeto possui um workflow no GitHub Actions que vai falhar caso as validações do pre-commit não passem, portanto é essencial garantir que o código esteja em conformidade com os padrões configurados antes de enviar um pull request.
 
 ## ⚠️ Limitações
 
